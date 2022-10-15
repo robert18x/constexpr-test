@@ -1,26 +1,11 @@
 #pragma once
 #include "utilities.h"
+#include "constexpr_assertions.h"
+
 
 namespace constexpr_test {
     template<auto> struct constexpr_test_executor { };
 }
-
-#define C_ASSERT_EQ(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, ==)
-#define C_ASSERT_NE(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, !=)
-#define C_ASSERT_GT(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, >)
-#define C_ASSERT_GE(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, >=)
-#define C_ASSERT_LT(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, <)
-#define C_ASSERT_LE(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, <=)
-#define C_ASSERT_TRUE(actual_value) TEST_IMPL(actual_value, true, ==)
-#define C_ASSERT_FALSE(actual_value) TEST_IMPL(actual_value, false, ==)
-
-
-#define TEST_IMPL(actual_value, expected_value, comparator)\
-    do {\
-        if (not (actual_value comparator expected_value)) {\
-            throw "error";\
-        }\
-    } while (false)
 
 
 #define TEST_SUITE(test_suite_name)\

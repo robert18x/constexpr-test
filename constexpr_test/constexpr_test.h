@@ -5,18 +5,18 @@ namespace constexpr_test {
     template<auto> struct constexpr_test_executor { };
 }
 
-#define C_ASSERT_EQ(expected_value, actual_value) TEST_IMPL(expected_value, actual_value, ==)
-#define C_ASSERT_NE(expected_value, actual_value) TEST_IMPL(expected_value, actual_value, !=)
-#define C_ASSERT_GT(expected_value, actual_value) TEST_IMPL(expected_value, actual_value, >)
-#define C_ASSERT_GE(expected_value, actual_value) TEST_IMPL(expected_value, actual_value, >=)
-#define C_ASSERT_LT(expected_value, actual_value) TEST_IMPL(expected_value, actual_value, <)
-#define C_ASSERT_LE(expected_value, actual_value) TEST_IMPL(expected_value, actual_value, <=)
+#define C_ASSERT_EQ(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, ==)
+#define C_ASSERT_NE(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, !=)
+#define C_ASSERT_GT(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, >)
+#define C_ASSERT_GE(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, >=)
+#define C_ASSERT_LT(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, <)
+#define C_ASSERT_LE(actual_value, expected_value) TEST_IMPL(actual_value, expected_value, <=)
 #define C_ASSERT_TRUE(actual_value) TEST_IMPL(actual_value, true, ==)
 #define C_ASSERT_FALSE(actual_value) TEST_IMPL(actual_value, false, ==)
 
 
-#define TEST_IMPL(expected_value, actual_value, comparator)\
-    if (not (expected_value comparator actual_value)) {\
+#define TEST_IMPL(actual_value, expected_value, comparator)\
+    if (not (actual_value comparator expected_value)) {\
         throw "error";\
     }\
 

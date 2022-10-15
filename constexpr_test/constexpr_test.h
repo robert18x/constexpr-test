@@ -22,7 +22,7 @@ namespace constexpr_test {
 
 
 #define TEST_SUITE(test_suite_name)\
-    namespace test_suite_name {\
+    namespace constexpr_test::test_suite_name {\
         template<auto> consteval void f() { }\
         template<auto> struct A {};\
         template struct A<(f<0

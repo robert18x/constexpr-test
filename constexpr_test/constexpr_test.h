@@ -16,9 +16,11 @@ namespace constexpr_test {
 
 
 #define TEST_IMPL(actual_value, expected_value, comparator)\
-    if (not (actual_value comparator expected_value)) {\
-        throw "error";\
-    }\
+    do {\
+        if (not (actual_value comparator expected_value)) {\
+            throw "error";\
+        }\
+    } while (false)
 
 
 #define TEST_SUITE(test_suite_name)\

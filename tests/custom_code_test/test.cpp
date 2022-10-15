@@ -19,13 +19,13 @@ C_TEST_CASE(base_class_test) {
     base* base_hander = dynamic_cast<base*>(&s);
 
     C_ASSERT_NE(base_hander, nullptr);
-    C_ASSERT_EQ(base_hander->get_int(), 0);
+    C_EXPECT_EQ(base_hander->get_int(), 0);
 
     base_hander->change_state();
-    C_ASSERT_EQ(base_hander->get_int(), 1);
+    C_EXPECT_EQ(base_hander->get_int(), 1);
 
     s.change_state();
-    C_ASSERT_EQ(base_hander->get_int(), 2);
+    C_EXPECT_EQ(base_hander->get_int(), 2);
 }
 
 TEST_SUITE_END

@@ -1,7 +1,7 @@
 #pragma once
 #include "utilities.h"
-#include "constexpr_assertions.h"
-
+#include "constexpr_assert.h"
+#include "constexpr_expect.h"
 
 namespace constexpr_test {
     template<auto> struct constexpr_test_executor { };

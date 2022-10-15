@@ -17,7 +17,7 @@ namespace constexpr_test {
 
 #define TEST_IMPL(actual_value, expected_value, comparator)\
     if (not (actual_value comparator expected_value)) {\
-        throw "error";\
+        throw "Error in '" XSTR(actual_value) " " XSTR(comparator) " " XSTR(expected_value) "'" ;\
     }\
 
 
@@ -31,17 +31,17 @@ namespace constexpr_test {
     >(), 0)>;\
     \
     class test_case_name {\
-        template<auto expr_lambda>\
+        template<auto test_lambda>\
         static consteval bool test_impl() {\
             bool test_out = true;\
-            expr_lambda(test_out);\
+            test_lambda(test_out);\
             return test_out;\
         }\
     \
       public:\
-        template<auto expr_lambda>\
+        template<auto test_lambda>\
         static consteval void test() {\
-            static_assert(test_impl<expr_lambda>(), XSTR(test_case_name));\
+            static_assert(test_impl<test_lambda>(), #test_case_name);\
         }\
     };\
     \

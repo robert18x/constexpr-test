@@ -17,8 +17,8 @@ C_TEST_CASE(test_non_constexpr_variables_which_are_constexpr_constructable) {
     int i = 4;
     C_ASSERT_EQ(square(i), i*i);
 
-    auto i_ptr = std::make_unique<int>(i);
-    C_ASSERT_EQ(*i_ptr, i);
+    //auto i_ptr = std::make_unique<int>(i);
+    //C_ASSERT_EQ(*i_ptr, i);
 
     std::optional<int> val = std::nullopt;
     C_ASSERT_EQ(val, std::nullopt);
@@ -27,10 +27,10 @@ C_TEST_CASE(test_non_constexpr_variables_which_are_constexpr_constructable) {
     C_ASSERT_TRUE(val.has_value());
     C_ASSERT_EQ(val.value(), i);
 
-    std::string_view text("text");
-    std::string text_str(text);
-    C_ASSERT_EQ(text, text_str);
-    C_ASSERT_FALSE(text_str.empty());
+    //std::string_view text("text");
+    //std::string text_str(text);
+    //C_ASSERT_EQ(text, text_str);
+    //C_ASSERT_FALSE(text_str.empty());
 }
 
 C_TEST_CASE(assert_macro_test) {

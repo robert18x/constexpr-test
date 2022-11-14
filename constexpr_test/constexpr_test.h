@@ -1,7 +1,6 @@
 #pragma once
 #include "utilities.h"
 #include "constexpr_assert.h"
-#include "constexpr_expect.h"
 
 namespace constexpr_test {
     template<auto> struct constexpr_test_executor { };
@@ -28,7 +27,7 @@ namespace constexpr_test {
       public:\
         template<auto expr_lambda>\
         static consteval void test() {\
-            static_assert(test_impl<expr_lambda>(), XSTR(test_case_name));\
+            static_assert(test_impl<expr_lambda>());\
         }\
     };\
     \

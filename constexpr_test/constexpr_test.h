@@ -19,9 +19,8 @@ namespace constexpr_test {
     class test_case_name {\
         template<auto expr_lambda>\
         static consteval bool test_impl() {\
-            bool test_out = true;\
-            expr_lambda(test_out);\
-            return test_out;\
+            expr_lambda();\
+            return true;\
         }\
     \
       public:\
@@ -31,7 +30,7 @@ namespace constexpr_test {
         }\
     };\
     \
-    using execute ## test_case_name = constexpr_test::constexpr_test_executor<(test_case_name::test<[](bool& _CONSTEXPR_TEST_OUT_) /* user test code goes here */
+    using execute ## test_case_name = constexpr_test::constexpr_test_executor<(test_case_name::test<[]() consteval -> void /* user test code goes here */
 
 
 #define TEST_SUITE_END \

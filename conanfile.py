@@ -4,7 +4,7 @@ import os
 
 class ConstexprTestConan(ConanFile):
     name = "constexpr-test"
-    version = "0.1.1"
+    version = "0.1.2"
     description = ""
     license = ""
     topics = ("test", "constexpr", "header-only")

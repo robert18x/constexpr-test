@@ -8,6 +8,7 @@
 #define C_ASSERT_LE(actual_value, expected_value) C_ASSERT_IMPL(actual_value, expected_value, <=)
 #define C_ASSERT_TRUE(actual_value) C_ASSERT_IMPL(actual_value, true, ==)
 #define C_ASSERT_FALSE(actual_value) C_ASSERT_IMPL(actual_value, false, ==)
+#define C_ASSERT_NOTHROW(expression) { expression; }
 
 namespace constexpr_test {
     template <int length>
